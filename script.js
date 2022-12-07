@@ -11,6 +11,13 @@ $(".saveBtn").click(taskSave)
 $("#hour-9 textarea").val(localStorage.getItem("hour-9"))
 $("#hour-10 textarea").val(localStorage.getItem("hour-10"))
 $("#hour-11 textarea").val(localStorage.getItem("hour-11"))
+// add the other rows
+$(".time-block").each(function(){ 
+  console.log(dayjs().hour())
+  var timeNow = dayjs().hour()
+  var rowHour = $(this).
+})
+
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
