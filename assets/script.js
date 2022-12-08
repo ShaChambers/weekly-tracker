@@ -1,29 +1,33 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-//ADD current time at the top
+//ADD current day at the top
 var today = dayjs();
-$('#currentDay').text(today.format('MMM D, YYYY'));
+$('#currentDay').text(today.format('dddd,MMM D, YYYY'));
+//google current time, for that is not the same as the current day in terms of values
 
+var time = dayjs().format('hh:mm:ss');
+$('#currentTime').text(time);
+//current time displayed, but it stays still and doesnt move...
 
+//create function that connects save button to local storage
 function taskSave() {
   console.log($(this).parent().attr("id"))
 var text= $(this).siblings("textarea").val()
 var time= $(this).parent().attr("id")
 localStorage.setItem(time, text)
 }
-//  save button is clicked at end of the rows, data goes to LS
+//save button is clicked at end of the rows, data goes to LS
 $(".saveBtn").click(taskSave)
-$("#hour-9 textarea").val(localStorage.getItem("hour-9"))
-$("#hour-10 textarea").val(localStorage.getItem("hour-10"))
-$("#hour-11 textarea").val(localStorage.getItem("hour-11"))
-$("#hour-12 textarea").val(localStorage.getItem("hour-12"))
-$("#hour-13 textarea").val(localStorage.getItem("hour-13"))
-$("#hour-14 textarea").val(localStorage.getItem("hour-14"))
-$("#hour-15 textarea").val(localStorage.getItem("hour-15"))
-$("#hour-16 textarea").val(localStorage.getItem("hour-16"))
-$("#hour-17 textarea").val(localStorage.getItem("hour-17"))
+$("#hour-9 textarea").val(localStorage.getItem("hour-9"));
+$("#hour-10 textarea").val(localStorage.getItem("hour-10"));
+$("#hour-11 textarea").val(localStorage.getItem("hour-11"));
+$("#hour-12 textarea").val(localStorage.getItem("hour-12"));
+$("#hour-13 textarea").val(localStorage.getItem("hour-13"));
+$("#hour-14 textarea").val(localStorage.getItem("hour-14"));
+$("#hour-15 textarea").val(localStorage.getItem("hour-15"));
+$("#hour-16 textarea").val(localStorage.getItem("hour-16"));
+$("#hour-17 textarea").val(localStorage.getItem("hour-17"));
+//end of rows
 
+//Past Present Future fucntionality &logic
 $(".time-block").each(function(){ 
   console.log(dayjs().hour())
   var timeNow = dayjs().hour()
@@ -40,6 +44,21 @@ $(".time-block").each(function(){
     $(this).addClass("present")
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
