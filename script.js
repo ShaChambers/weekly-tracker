@@ -1,22 +1,46 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+//ADD current time at the top
+var today = dayjs();
+$('#currentDay').text(today.format('MMM D, YYYY'));
+
+
 function taskSave() {
   console.log($(this).parent().attr("id"))
 var text= $(this).siblings("textarea").val()
 var time= $(this).parent().attr("id")
 localStorage.setItem(time, text)
 }
+//  save button is clicked at end of the rows, data goes to LS
 $(".saveBtn").click(taskSave)
 $("#hour-9 textarea").val(localStorage.getItem("hour-9"))
 $("#hour-10 textarea").val(localStorage.getItem("hour-10"))
 $("#hour-11 textarea").val(localStorage.getItem("hour-11"))
-// add the other rows
+$("#hour-12 textarea").val(localStorage.getItem("hour-12"))
+$("#hour-13 textarea").val(localStorage.getItem("hour-13"))
+$("#hour-14 textarea").val(localStorage.getItem("hour-14"))
+$("#hour-15 textarea").val(localStorage.getItem("hour-15"))
+$("#hour-16 textarea").val(localStorage.getItem("hour-16"))
+$("#hour-17 textarea").val(localStorage.getItem("hour-17"))
+
 $(".time-block").each(function(){ 
   console.log(dayjs().hour())
   var timeNow = dayjs().hour()
-  var rowHour = $(this).
+  var rowHour = $(this).attr("id").split("-")[1]
+  console.log(rowHour)
+  if(timeNow>rowHour){
+    $(this).addClass("past")
+    
+  }
+  else if(timeNow<rowHour){
+    $(this).addClass("future")
+  }
+  else{
+    $(this).addClass("present")
+  }
 })
+
 
 
   // TODO: Add a listener for click events on the save button. This code should
