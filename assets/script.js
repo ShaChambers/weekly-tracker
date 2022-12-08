@@ -3,10 +3,15 @@ var today = dayjs();
 $('#currentDay').text(today.format('dddd,MMM D, YYYY'));
 //google current time, for that is not the same as the current day in terms of values
 
-var time = dayjs().format('hh:mm:ss');
-$('#currentTime').text(time);
+// var time = dayjs().format('hh:mm:ss');
+// $('#currentTime').text(time);
 //current time displayed, but it stays still and doesnt move...
 
+setInterval(function() {
+  var time = dayjs().format('hh:mm:ss');
+$('#currentTime').text(time);
+
+} ,1000);
 //create function that connects save button to local storage
 function taskSave() {
   console.log($(this).parent().attr("id"))
