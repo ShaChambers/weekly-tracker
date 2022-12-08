@@ -1,6 +1,6 @@
 # Weekly Tracker
 
-## [Deployed Application]()
+## [Deployed Application](https://suzychambers.github.io/weekly-tracker/)
 
 ## Description
 A weekly work-day task tracker that saves what you input last using local storage.
